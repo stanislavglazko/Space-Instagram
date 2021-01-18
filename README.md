@@ -19,16 +19,19 @@ Python3 should be already installed.
     ```
 
 ### How to use
-Write: 
+1) Write: 
     ```
     python3 main.py 
     ```
-You are able to choose `flight_number` (SpaceX) and `collection_name` (Hubble). For example: 
+2) You are able to choose `flight_number` (SpaceX) and `collection_name` (Hubble). 
+   For example: 
     ```
-python3 main.py --flight_number=55 --collection_name='news'
+    python3 main.py --flight_number=55 --collection_name='news'
     ```
-Default meanings: `flight_number` = 64, `collection_name` = spacecraft
-
+3) Default meanings:
+    ```
+    flight_number = 64, collection_name = spacecraft
+    ```
 ### Project Goals
 
 The code is written for educational purposes on online-course for web-developers [dvmn.org](https://dvmn.org/).
