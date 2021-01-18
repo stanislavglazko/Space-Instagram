@@ -24,7 +24,6 @@ def change_img(file):
 
 def post_to_instargam(file):
     path_to_file = os.path.join('images', file)
-    load_dotenv()
     login = os.getenv("INSTAGRAM_LOGIN")
     password = os.getenv("INSTAGRAM_PASSWORD")
     change_img(file)
@@ -47,6 +46,7 @@ def get_parser():
 
 
 def main():
+    load_dotenv()
     args = get_parser().parse_args()
     folder = 'images'
     make_folder(folder)
