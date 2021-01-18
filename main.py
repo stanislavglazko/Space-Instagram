@@ -24,20 +24,18 @@ def change_img(file, folder='images'):
     image.close()
 
 
-def post_to_instargam(file, folder='images'):
+def post_to_instargam(login, password, file, folder='images'):
     path_to_file = os.path.join(folder, file)
-    login = os.getenv("INSTAGRAM_LOGIN")
-    password = os.getenv("INSTAGRAM_PASSWORD")
     change_img(file, folder=folder)
     bot = Bot()
     bot.login(username=login, password=password)
     bot.upload_photo(path_to_file)
 
 
-def post_all_images_to_instagram(folder='images'):
+def post_all_images_to_instagram(login, password, folder='images'):
     for file in os.listdir(folder):
         print(file)
-        post_to_instargam(file, folder=folder)
+        post_to_instargam(login, password, file, folder=folder)
 
 
 def get_parser():
@@ -50,12 +48,14 @@ def get_parser():
 
 def main():
     load_dotenv()
+    login = os.getenv("INSTAGRAM_LOGIN")
+    password = os.getenv("INSTAGRAM_PASSWORD")
     args = get_parser().parse_args()
     folder = args.folder
     make_folder(folder)
     fetch_spacex_launch(args.flight_number, folder)
     fetch_hubble_collection(args.collection_name, folder)
-    post_all_images_to_instagram(folder)
+    post_all_images_to_instagram(login, password, folder)
 
 
 if __name__ == '__main__':
