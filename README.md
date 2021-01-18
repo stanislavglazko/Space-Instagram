@@ -14,8 +14,8 @@ Python3 should be already installed.
     ```
 3) add .env file in the directory of the tool:
     ```
-    "INSTAGRAM_LOGIN"=<your_instagram_login>
-    "INSTAGRAM_PASSWORD"=<your_instagram_password>
+    INSTAGRAM_LOGIN=<your_instagram_login>
+    INSTAGRAM_PASSWORD=<your_instagram_password>
     ```
 
 ### How to use
