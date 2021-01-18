@@ -11,8 +11,8 @@ def make_folder(folder):
     os.makedirs(folder, exist_ok=True)
 
 
-def change_img(file):
-    path_to_file = os.path.join('images', file)
+def change_img(file, folder='images'):
+    path_to_file = os.path.join(folder, file)
     image = Image.open(path_to_file)
     for size in image.size:
         print(size)
@@ -22,20 +22,20 @@ def change_img(file):
     image.close()
 
 
-def post_to_instargam(file):
-    path_to_file = os.path.join('images', file)
+def post_to_instargam(file, folder='images'):
+    path_to_file = os.path.join(folder, file)
     login = os.getenv("INSTAGRAM_LOGIN")
     password = os.getenv("INSTAGRAM_PASSWORD")
-    change_img(file)
+    change_img(file, folder=folder)
     bot = Bot()
     bot.login(username=login, password=password)
     bot.upload_photo(path_to_file)
 
 
-def post_all_images_to_instagram(folder):
+def post_all_images_to_instagram(folder='images'):
     for file in os.listdir(folder):
         print(file)
-        post_to_instargam(file)
+        post_to_instargam(file, folder=folder)
 
 
 def get_parser():
