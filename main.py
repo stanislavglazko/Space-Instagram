@@ -14,10 +14,12 @@ def make_folder(folder):
 def change_img(file, folder='images'):
     path_to_file = os.path.join(folder, file)
     image = Image.open(path_to_file)
+    critical_size = 1080
     for size in image.size:
         print(size)
-        if size > 1080:
+        if size > critical_size:
             image.thumbnail((1080, 1080))
+            break
     image.save(path_to_file, format="JPEG")
     image.close()
 
