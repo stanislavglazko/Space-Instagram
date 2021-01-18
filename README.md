@@ -1,7 +1,6 @@
 # Space Instagram
 
 My tool downloads photos from SpaceX and Hubble.
-(You will see the photos in the folder 'images' in the directory with the tool) 
 And after that my tool posts the photos to your Instagram account.
 
 ### How to install
