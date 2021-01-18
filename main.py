@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from PIL import Image
 from instabot import Bot
 from fetch_spacex import fetch_spacex_launch
-from fetch_hubble import get_hubble_collection
+from fetch_hubble import fetch_hubble_collection
 
 
 def make_folder(folder):
@@ -52,7 +52,7 @@ def main():
     folder = 'images'
     make_folder(folder)
     fetch_spacex_launch(args.flight_number)
-    get_hubble_collection(args.collection_name)
+    fetch_hubble_collection(args.collection_name)
     post_all_images_to_instagram(folder)
 
 
