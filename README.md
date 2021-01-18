@@ -23,14 +23,15 @@ Python3 should be already installed.
     ```
     python3 main.py 
     ```
-2) You are able to choose `flight_number` (SpaceX) and `collection_name` (Hubble). 
+2) You are able to choose `flight_number` (SpaceX) , `collection_name` (Hubble)
+   and folder in the directory with the tool for saving photos. 
    For example: 
     ```
-    python3 main.py --flight_number=55 --collection_name='news'
+    python3 main.py --flight_number=55 --collection_name='news' --folder='photos'
     ```
 3) Default meanings:
     ```
-    flight_number = 64, collection_name = spacecraft
+    flight_number = 64, collection_name = spacecraft, folder = images
     ```
 ### Project Goals
 

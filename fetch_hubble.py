@@ -8,7 +8,7 @@ def get_image_extension(link):
     return image_extension
 
 
-def fetch_hubble_image(image_id):
+def fetch_hubble_image(image_id, folder='images'):
     url = f'http://hubblesite.org/api/v3/image/{image_id}'
     response = requests.get(url, verify=False)
     response.raise_for_status()
@@ -16,10 +16,10 @@ def fetch_hubble_image(image_id):
     extension = get_image_extension(link)
     filename = f'{image_id}.{extension}'
     print(link)
-    load_img(filename, link)
+    load_img(filename, link, folder=folder)
 
 
-def fetch_hubble_collection(collection_name='spacecraft'):
+def fetch_hubble_collection(collection_name='spacecraft', folder='images'):
     url = 'http://hubblesite.org/api/v3/images'
     payload = {
         'page': 'all',
@@ -29,4 +29,4 @@ def fetch_hubble_collection(collection_name='spacecraft'):
     response.raise_for_status()
     for image in response.json():
         print(image['id'])
-        fetch_hubble_image(image_id=image['id'])
+        fetch_hubble_image(image_id=image['id'], folder=folder)
