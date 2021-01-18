@@ -8,8 +8,7 @@ from fetch_hubble import fetch_hubble_collection
 
 
 def make_folder(folder):
-    if not os.path.exists(folder):
-        os.makedirs(folder)
+    os.makedirs(folder, exist_ok=True)
 
 
 def change_img(file):
