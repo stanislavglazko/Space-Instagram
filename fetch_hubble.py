@@ -4,8 +4,8 @@ from load_image import load_img
 
 
 def get_image_extension(link):
-    link = link.rstrip('/').split('.')
-    return link[-1]
+    _, image_extension = os.path.splitext(link)
+    return image_extension
 
 
 def fetch_hubble_image(image_id):
