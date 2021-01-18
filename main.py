@@ -16,7 +16,6 @@ def change_img(file, folder='images'):
     image = Image.open(path_to_file)
     critical_size = 1080
     for size in image.size:
-        print(size)
         if size > critical_size:
             image.thumbnail((1080, 1080))
             break
@@ -34,7 +33,6 @@ def post_to_instargam(login, password, file, folder='images'):
 
 def post_all_images_to_instagram(login, password, folder='images'):
     for file in os.listdir(folder):
-        print(file)
         post_to_instargam(login, password, file, folder=folder)
 
 

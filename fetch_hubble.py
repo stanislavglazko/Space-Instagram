@@ -15,7 +15,6 @@ def fetch_hubble_image(image_id, folder='images'):
     link = 'http:' + response.json()['image_files'][-1]['file_url']
     extension = get_image_extension(link)
     filename = f'{image_id}.{extension}'
-    print(link)
     load_img(filename, link, folder=folder)
 
 
@@ -28,5 +27,4 @@ def fetch_hubble_collection(collection_name='spacecraft', folder='images'):
     response = requests.get(url, verify=False, params=payload)
     response.raise_for_status()
     for image in response.json():
-        print(image['id'])
         fetch_hubble_image(image_id=image['id'], folder=folder)
