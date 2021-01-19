@@ -12,7 +12,8 @@ def fetch_hubble_image(image_id, folder='images'):
     url = f'http://hubblesite.org/api/v3/image/{image_id}'
     response = requests.get(url, verify=False)
     response.raise_for_status()
-    link = 'http:' + response.json()['image_files'][-1]['file_url']
+    link_from_response = response.json()['image_files'][-1]['file_url']
+    link = f'http:{link_from_response}'
     extension = get_image_extension(link)
     filename = f'{image_id}.{extension}'
     load_img(filename, link, folder=folder)
