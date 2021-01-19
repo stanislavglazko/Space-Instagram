@@ -1,10 +1,10 @@
-import os
 import argparse
-from dotenv import load_dotenv
-from PIL import Image
+import os
 from instabot import Bot
-from fetch_spacex import fetch_spacex_launch
+from PIL import Image
+from dotenv import load_dotenv
 from fetch_hubble import fetch_hubble_collection
+from fetch_spacex import fetch_spacex_launch
 
 
 def make_folder(folder):
