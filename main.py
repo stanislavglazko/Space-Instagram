@@ -19,7 +19,7 @@ def change_img(filename, folder='images'):
         if size > critical_size:
             image.thumbnail((1080, 1080))
             break
-    image.save(filepath, format="JPEG")
+    image.save(filepath)
     image.close()
 
 
@@ -52,7 +52,7 @@ def main():
     folder = args.folder
     make_folder(folder)
     fetch_spacex_launch(args.flight_number, folder)
-    # fetch_hubble_collection(args.collection_name, folder)
+    fetch_hubble_collection(args.collection_name, folder)
     post_all_images_to_instagram(login, password, folder)
 
 
