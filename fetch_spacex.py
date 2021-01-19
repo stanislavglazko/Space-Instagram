@@ -9,5 +9,5 @@ def fetch_spacex_launch(flight_number=64, folder='images'):
     response = requests.get(url, params=payload)
     response.raise_for_status()
     links = response.json()[0]['links']['flickr_images']
-    for img_link_number, img_link in enumerate(links, 10):
+    for img_link_number, img_link in enumerate(links, 1):
         load_img(f'spacex{img_link_number}.jpg', img_link, folder)

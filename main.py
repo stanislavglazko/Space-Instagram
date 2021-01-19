@@ -11,29 +11,29 @@ def make_folder(folder):
     os.makedirs(folder, exist_ok=True)
 
 
-def change_img(file, folder='images'):
-    path_to_file = os.path.join(folder, file)
-    image = Image.open(path_to_file)
+def change_img(filename, folder='images'):
+    filepath = os.path.join(folder, filename)
+    image = Image.open(filepath)
     critical_size = 1080
     for size in image.size:
         if size > critical_size:
             image.thumbnail((1080, 1080))
             break
-    image.save(path_to_file, format="JPEG")
+    image.save(filepath, format="JPEG")
     image.close()
 
 
-def post_to_instargam(login, password, file, folder='images'):
-    path_to_file = os.path.join(folder, file)
-    change_img(file, folder=folder)
+def post_to_instargam(login, password, filename, folder='images'):
+    filepath = os.path.join(folder, filename)
+    change_img(filename, folder=folder)
     bot = Bot()
     bot.login(username=login, password=password)
-    bot.upload_photo(path_to_file)
+    bot.upload_photo(filepath)
 
 
 def post_all_images_to_instagram(login, password, folder='images'):
-    for file in os.listdir(folder):
-        post_to_instargam(login, password, file, folder=folder)
+    for filename in os.listdir(folder):
+        post_to_instargam(login, password, filename, folder=folder)
 
 
 def get_parser():
@@ -52,7 +52,7 @@ def main():
     folder = args.folder
     make_folder(folder)
     fetch_spacex_launch(args.flight_number, folder)
-    fetch_hubble_collection(args.collection_name, folder)
+    # fetch_hubble_collection(args.collection_name, folder)
     post_all_images_to_instagram(login, password, folder)
 
 
